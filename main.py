@@ -53,4 +53,35 @@ def greet_user():
     if (hour >= 6 and hour < 22):
         speak(text2)
 
+#taking user input using speech recofnition module (sr)
+def take_user_input():
+    """Takes the user input, recognizes it using speech recognition module
+    and converts it to text (a string)"""
+
+    r = sr.Recognizer()
+    with sr.Microphone() as source:
+        print('Listening')
+        r.pause_threshold = 1
+        audio = r.listen(source)
+
+    try:
+        print('recognizing...')
+        query = r.recognize_google(audio, language='en-US')
+        if not 'exit' in query or 'stop' in query:
+            speak(choice(opening_text))
+            speak(query)
+        else:
+            hour = datetime.now().hour
+            if hour < 6 or hour >= 21:
+                speak(query)
+                speak('Good night my master')
+            else:
+                speak('thank you, have nice day sir.')
+            exit()
+    except Exception:
+        speak("I could not understand, please repeat.")
+        query = 'None'
+    return query
+
+take_user_input()
 
