@@ -1,4 +1,4 @@
-opening_text = {
+opening_text = (
     "I'm on it sir",
     "Oki doki",
     "Sir, yes sir!",
@@ -11,6 +11,5 @@ opening_text = {
     "Seriously? you really want me to do this? All right!",
     "Let's do this!",
     "There you are!",
-    "It's a pleasure to serve you.",
-
-}
+    "It's a pleasure to serve you."
+)

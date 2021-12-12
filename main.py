@@ -67,21 +67,21 @@ def take_user_input():
     try:
         print('recognizing...')
         query = r.recognize_google(audio, language='en-US')
-        if not 'exit' in query or 'stop' in query:
-            speak(choice(opening_text))
-            speak(query)
-        else:
+        if ('exit' or 'stop') in query:
             hour = datetime.now().hour
             if hour < 6 or hour >= 21:
-                speak(query)
+                #speak(query)
                 speak('Good night my master')
             else:
                 speak('thank you, have nice day sir.')
             exit()
+        else:
+            speak(choice(opening_text))
+            #speak(query)
     except Exception:
         speak("I could not understand, please repeat.")
         query = 'None'
     return query
 
-take_user_input()
+
 
