@@ -18,9 +18,12 @@ voices = engine.getProperty('voices')
 #engine.setProperty('voice', voices[0]) #male voice
 engine.setProperty('voice', voices[2].id) #1:female voice - 2:male voice - 0: default
 
+#text to speech conversion function
+def speak(text, pace=200):
+    """says whatever string is passed as text, with the given pace"""
 
+    engine.setProperty('rate', pace)
+    engine.say(text)
+    engine.runAndWait()
 
-engine.say("You talking to me?")
-engine.say("who do you think I am?")
-engine.runAndWait()
 
