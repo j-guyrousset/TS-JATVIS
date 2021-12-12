@@ -1,3 +1,6 @@
+import speech_recognition as sr
+from random import choice
+from utils import opening_text
 from datetime import datetime
 import pyttsx3
 from decouple import config
@@ -50,4 +53,4 @@ def greet_user():
     if (hour >= 6 and hour < 22):
         speak(text2)
 
-greet_user()
+
