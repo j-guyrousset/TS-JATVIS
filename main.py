@@ -1,3 +1,4 @@
+from datetime import datetime
 import pyttsx3
 from decouple import config
 
@@ -27,3 +28,26 @@ def speak(text, pace=200):
     engine.runAndWait()
 
 
+#greet function
+def greet_user():
+    """Greets the user according to moment of the day"""
+
+    hour = datetime.now().hour
+    text2 = "I am {}. How may I asist you?".format(BOTNAME)
+    if hour < 6:
+        speak('It is much to early, let me sleep', 100)
+        speak('come back later {}'.format(USERNAME), 80)
+    elif (hour >= 6 and hour < 12):
+        speak('Good morning {} '.format(USERNAME))
+    elif (hour >= 12 and hour < 19):
+        speak('Good afternoon {}'.format(USERNAME))
+    elif (hour >= 19 and hour < 22):
+        speak('Good evening {}'.format(USERNAME))
+    else:
+        speak('Oh comme on, let me sleep!')
+        speak('We will talk about it tomorrow {}'.format(USERNAME))
+
+    if (hour >= 6 and hour < 22):
+        speak(text2)
+
+greet_user()
