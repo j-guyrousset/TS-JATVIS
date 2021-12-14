@@ -20,4 +20,8 @@ def open_calc():
 def open_cmd():
     os.system('start cmd')
 
-open_cmd()
+file = open(r'C:\Users\Jean-Guy\Documents\python_tony_starks_jarvis\log.txt','a')
+file.write('Is this what you expected?')
+file.close()
+os.startfile(r'C:\Users\Jean-Guy\Documents\python_tony_starks_jarvis\log.txt')
+

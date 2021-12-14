@@ -73,4 +73,3 @@ def get_advice():
     return res['slip']['advice']
 
 
-print(get_advice())

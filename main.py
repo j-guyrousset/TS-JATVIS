@@ -1,9 +1,15 @@
+import os
 import speech_recognition as sr
 from random import choice
 from utils import opening_text
 from datetime import datetime
 import pyttsx3
 from decouple import config
+
+import requests
+from functions.online_ops import find_my_ip, find_wikipedia, play_yt, search_google, send_wtsapp_msg, send_email, get_news, get_joke, get_advice
+from functions.os_ops import open_camera, open_cmd, open_notepad, open_calc
+from pprint import pprint
 
 USERNAME = config('USER')
 BOTNAME = config('BOTNAME')
@@ -82,6 +88,48 @@ def take_user_input():
         speak("I could not understand, please repeat.")
         query = 'None'
     return query
+
+
+if __name__ == '__main__':
+    greet_user()
+    while True:
+        query = take_user_input().lower()
+        if 'open notepad' in query:
+            open_notepad()
+            speak('notepad is open')
+        elif 'camera' in query:
+            open_camera()
+            speak('camera is now on: smile!')
+        elif 'command prompt' in query:
+            open_cmd()
+            speak('command prompt is open')
+        elif 'calculator' in query:
+            open_calc()
+            speak('claculator is open')
+        elif 'ip address'in query:
+            my_IP = find_my_ip()
+            speak('I found your IP address')
+            speak('May I print it?')
+            ans = take_user_input()
+            if 'yes' in ans:
+                file = open(r'C:\Users\Jean-Guy\Documents\python_tony_starks_jarvis\log.txt','a')
+                file.write('Your IP: {}'.format(my_IP))
+                file.close()
+                os.startfile(r'C:\Users\Jean-Guy\Documents\python_tony_starks_jarvis\log.txt')
+                speak('say close to close and delete file')
+                take_user_input()
+                os.remove('log.txt')
+            else:
+                speak("I got it, we do not print it")
+        elif 'wikipedia' in query:
+            speak('What should I find on wikipedia?')
+            search = take_user_input()
+            result = find_wikipedia(search)
+            speak('after wikipedia:')
+            speak(result)
+            speak
+
+
 
 
 
