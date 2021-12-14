@@ -8,7 +8,7 @@ from decouple import config
 
 import requests
 from functions.online_ops import find_my_ip, find_wikipedia, play_yt, search_google, send_wtsapp_msg, send_email, get_news, get_joke, get_advice
-from functions.os_ops import open_camera, open_cmd, open_notepad, open_calc
+from functions.os_ops import open_camera, open_cmd, open_notepad, open_calc, print_in_notepad
 from pprint import pprint
 
 USERNAME = config('USER')
@@ -112,10 +112,7 @@ if __name__ == '__main__':
             speak('May I print it?')
             ans = take_user_input()
             if 'yes' in ans:
-                file = open(r'C:\Users\Jean-Guy\Documents\python_tony_starks_jarvis\log.txt','a')
-                file.write('Your IP: {}'.format(my_IP))
-                file.close()
-                os.startfile(r'C:\Users\Jean-Guy\Documents\python_tony_starks_jarvis\log.txt')
+                print_in_notepad('Your IP: {}'.format(my_IP))
                 speak('say close to close and delete file')
                 take_user_input()
                 os.remove('log.txt')
@@ -127,7 +124,21 @@ if __name__ == '__main__':
             result = find_wikipedia(search)
             speak('after wikipedia:')
             speak(result)
-            speak
+            speak('Should I print it ?')
+            ans = take_user_input()
+            if 'yes' in ans:
+                speak('as you wish!')
+                print_in_notepad(result)
+            else:
+                speak("I got it, we do not print it")
+        elif 'youtube' in query:
+            speak('Want would like to watch on youtube?')
+            video = take_user_input().lower()
+            play_yt(video)
+        elif 'google' in query:
+            speak('Tell me what you are looking for')
+            gsearch = take_user_input()
+            search_google(gsearch).lower()
 
 
 

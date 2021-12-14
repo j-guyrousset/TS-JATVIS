@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5a8c5662-6c26-4e3c-abfe-a6156e0270d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/online_ops.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/online_ops.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/functions/os_ops.py" beforeDir="false" afterPath="$PROJECT_DIR$/functions/os_ops.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
